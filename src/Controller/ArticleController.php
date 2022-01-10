@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -139,6 +140,7 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('article_index'); 
     }
 
+    
 
 
 }
