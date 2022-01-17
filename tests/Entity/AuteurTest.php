@@ -42,9 +42,10 @@ $auteur->setNom('Nom');
     {
         $auteur = new Auteur();
         Auteur
-        $this->assertEmpty($auteur->getCivilite())
         $this->assertEmpty($auteur->getNom());
         $this->assertEmpty($auteur->getPrenom());
+        $this->assertEmpty($auteur->getCivilite())
+        
         $this->assertEmpty($auteur->getEmail());
         }
 }
