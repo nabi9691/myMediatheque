@@ -11,32 +11,40 @@ class AuteurTest extends TestCase
     {
         $auteur = new Auteur();
         
-        $auteur->setEmail('Email')
-                   ->setResume('Resume');
-                   $this->assertTrue($categorie->getTitre()==='Titre');
-                   $this->assertTrue($categorie->getResume()==='Resume');
-        
-    }
+        $auteur->setCivilite('Civilite')
+                   ->setNom('Nom')
+                   ->setPrenom('Prenom')
+                   ->setEmail('Email');
+                   
+
+                   $this->assertTrue($auteur->getCivilite()==='Civilite');
+                   $this->assertTrue($auteur->getNom()==='Nom');
+                   $this->assertTrue($auteur->getPrenom()==='Prenom');
+                   $this->assertTrue($auteur->getPrenom()==='Email');
+}
 
     public function TestError()
     {
-        $categorie = new Categorie();
-Categorie        
-        $categorie->setTitre('Titre')
-                   ->setResume('Resume');
+        $auteur = new Auteur();
+Auteur
+$auteur->setNom('Nom');
+                   ->setPrenom('Prenom')
+                   ->setCivilite('homme')
+->setEmail('Email');
     
-                   $this->assertFalse($categorie->getTitre() !=='titre');
-                   $this->assertFalse($categorie->getResume() !=='resume');
-        
-    }
+                                      $this->assertFalse($auteur->getNom() !=='nom');
+                   $this->assertFalse($auteur->getPrenom() !=='prenom');
+                       
+                   $this->assertFalse($auteur->getEmail() !=='email');
+                                      }
 
     public function TestEmpty()
     {
-        $categorie = new Categorie();
-        Categori
-        $this->assertEmpty($categorie->getTitre())
-        $this->assertEmpty($categorie->getResume());
-        
-    
-    }
+        $auteur = new Auteur();
+        Auteur
+        $this->assertEmpty($auteur->getCivilite())
+        $this->assertEmpty($auteur->getNom());
+        $this->assertEmpty($auteur->getPrenom());
+        $this->assertEmpty($auteur->getEmail());
+        }
 }
