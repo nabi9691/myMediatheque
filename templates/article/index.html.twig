@@ -40,7 +40,7 @@ Liste des articles :
 <td>{{ article.status }}</td>
 <td>{{ article.contenu }}</td>
                     <td>{{ article.date|date("d/m/Y") }}</td>  
-                    <td>{{ article.image }}</td>  
+                    <td>{{ article.imageName }}</td>  
                 <td>
                     <a href="{{ path('modifierArticle_index', {'id': article.id }) }}">Modifier</a>
                 </td>
