@@ -17,9 +17,9 @@ class ArticleTest extends TestCase
                         ->setTitre('titre')
                         ->setResume('resume')
                         ->setStatus('publier')
-                        ->setContenu('contenu de mon article');
+                        ->setContenu('contenu de mon article')
                         ->setDate($dateTime)
-                        ->setImage('image');
+                        ->setImageName('imageName');
                                 
         $this->assertTrue($article->getTitre() ==='titre');
         $this->assertTrue($article->getResume() ==='resume');
@@ -37,9 +37,9 @@ $this->assertTrue($article->getImageName() ==='imageName');
         ->setTitre('titre')
         ->setResume('resume')
         ->setStatus('publier')
-        ->setContenu('contenu de mon article');
+        ->setContenu('contenu de mon article')
         ->setDate($dateTime)
-        ->setImage('image');
+        ->setImageName('imageName');
         
         
                         

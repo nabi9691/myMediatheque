@@ -11,7 +11,8 @@ class AuteurTest extends TestCase
     {
         $auteur = new Auteur();
         
-        $auteur->setCivilite('Civilite')
+        $auteur
+        ->setCivilite('Civilite')
                    ->setNom('Nom')
                    ->setPrenom('Prenom')
                    ->setEmail('Email');
@@ -26,11 +27,11 @@ class AuteurTest extends TestCase
     public function TestError()
     {
         $auteur = new Auteur();
-Auteur
-$auteur->setNom('Nom');
+$auteur
+->setCivilite('homme')
+->setNom('Nom')
                    ->setPrenom('Prenom')
-                   ->setCivilite('homme')
-->setEmail('Email');
+                   ->setEmail('Email');
     
                                       $this->assertFalse($auteur->getNom() !=='nom');
                    $this->assertFalse($auteur->getPrenom() !=='prenom');
@@ -41,11 +42,10 @@ $auteur->setNom('Nom');
     public function TestEmpty()
     {
         $auteur = new Auteur();
-        Auteur
+
+        $this->assertEmpty($auteur->getCivilite());
         $this->assertEmpty($auteur->getNom());
         $this->assertEmpty($auteur->getPrenom());
-        $this->assertEmpty($auteur->getCivilite())
-        
-        $this->assertEmpty($auteur->getEmail());
+                $this->assertEmpty($auteur->getEmail());
         }
 }

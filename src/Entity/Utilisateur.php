@@ -26,16 +26,10 @@ class Utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $prenom;
-    
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
-    private $civilite;
-
-/**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $datedenaissance;
+private $datedenaissance;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -46,6 +40,16 @@ class Utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+/**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $civilite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
 
     public function getId(): ?int
     {
@@ -76,30 +80,18 @@ class Utilisateur
         return $this;
     }
 
-    public function getCivilite(): ?string
-    {
-        return $this->civilite;
-    }
 
-    public function setCivilite(string $civilite): self
-    {
-        $this->civilite = $civilite;
-
-        return $this;
-    }
-
-    public function getDatedenaissance(): ?string
+    public function getDatedenaissance(): ?\DateTimeInterface
     {
         return $this->datedenaissance;
     }
 
-    public function setDatedenaissance(string $datedenaissance): self
+    public function setDatedenaissance(\DateTimeInterface $datedenaissance): self
     {
         $this->datedenaissance = $datedenaissance;
 
         return $this;
     }
-
 
     public function getAdresse(): ?string
     {
@@ -126,6 +118,30 @@ class Utilisateur
         return $this;
     }
 
-    
+    public function getCivilite(): ?string
+    {
+        return $this->civilite;
+    }
+
+    public function setCivilite(string $civilite): self
+    {
+        $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+
 
 }

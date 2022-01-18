@@ -21,8 +21,8 @@ class CategorieTest extends TestCase
     public function TestError()
     {
         $categorie = new Categorie();
-Categorie        
-        $categorie->setTitre('Titre')
+$categorie        
+        ->setTitre('Titre')
                    ->setResume('Resume');
     
                    $this->assertFalse($categorie->getTitre() !=='titre');
@@ -33,8 +33,7 @@ Categorie
     public function TestEmpty()
     {
         $categorie = new Categorie();
-        Categori
-        $this->assertEmpty($categorie->getTitre())
+        $this->assertEmpty($categorie->getTitre());
         $this->assertEmpty($categorie->getResume());
         
     

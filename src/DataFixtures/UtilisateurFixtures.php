@@ -7,6 +7,7 @@ use App\Entity\Utilisateur;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\DBAL\Driver\IBMDB2\Exception\Factory;
+//use Faker\Factory;
 
 class UtilisateurFixtures extends Fixture
 {
