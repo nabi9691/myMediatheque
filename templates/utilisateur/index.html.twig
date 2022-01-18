@@ -36,7 +36,7 @@ Liste des utilisateurs :
                 <td>{{ utilisateur.nom }}</td>
                                 <td>{{ utilisateur.prenom }}</td>
 <td>{{ utilisateur.civilite }}</td>
-                 <td>{{ utilisateur.datedenaissance  }} </td>
+                 <td>{{ utilisateur.datedenaissance|date("d/m/Y")  }} </td>
 <td>{{ utilisateur.adresse }}</td> 
                  <td>{{ utilisateur.email }}</td>  
                 <td>
