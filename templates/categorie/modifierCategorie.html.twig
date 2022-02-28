@@ -1,27 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Modifier un auteur :
+Modifier une catégorie :
 {% endblock %}
 
 {% block body %}
     
     
     <h1>
-        Modifier un auteur :
+        Modifier une catégorie :
         </h1>
 
-{{ form_start(formAuteur) }}
+{% form_start(formCategorie) %}
 
-Nom: {{ form_widget(formAuteur.nom) }}<br>
-Prénom: {{ form_widget(formAuteur.prenom) }} <br>
-Civilité: {{ form_widget(formAuteur.civilite) }} <br>
-Email: {{ form_widget(formUtilisateur.email) }} <br>
 
 <button type="submit" class="btn btn-success">envoyer</button>
 
 
       
-    {{ form_end(formAuteur) }}
+    {{ form_end(formCategorie) }}
   {% endblock %}
 

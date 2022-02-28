@@ -2,38 +2,54 @@
 
 namespace App\DataFixtures;
 
-use Faker; 
 use App\Entity\Article;
+use App\Entity\Categorie;
+
+use Faker;
+use Faker\Factory;
+use DateTime;
+
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\DBAL\Driver\IBMDB2\Exception\Factory;
 
 class ArticleFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
-    {
-        $faker = Faker\Factory::create('fr_FR');
+{
+    $faker = Faker\Factory::create('fr_FR');
 
-         // Creer occurence de 750 articles :
-        
-         for ($i=0; $i<750 ; $i++ ) 
-        { 
-        
-        $article = new Article();
-        $status = ['archiver', 'publier', 'depublier'];
-                    shuffle($status);
+    // catégories :
             
-                    
-                    $article->setTitre($faker->sentence($nb = 5, $asText = false))
-                            ->setResume($faker->sentence())
-                            ->setStatus($status[0])
-                    ->setContenu($faker->text($maxNbChars = 250)) 
-                            ->setDate(new \DateTime())
-                            ->setImageName($faker->imageUrl($width = 640, $height = 480));
-                                
-$manager->persist($article);
+    for ($i=1; $i<5 ; $i++ ) 
+            { 
+                
+$categorie = new Categorie();
 
-        $manager->flush();
+                $categorie->setTitre($faker->name)
+                        ->setResume($faker->sentence());
+                        
+                    $manager->persist($categorie);
+    
+    // articles :
+            
+    for ($j=1; $j<10 ; $j++ ) 
+            { 
+$status = ['archiver', 'publier', 'dépublier'];
+shuffle($status);
+                
+$article = new Article();
+
+                $article->setTitre($faker->name)
+                        ->setResume($faker->sentence())
+                        ->setStatus($status[0])
+                        ->setContenu($faker->sentence()) 
+->setDate(new \DateTime())
+->setImageName($faker->name) 
+                            ->setCategories($categorie);
+                    
+ $manager->persist($article);
+            }
+                    $manager->flush();
     }
     }
 }

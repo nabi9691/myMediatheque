@@ -22,9 +22,10 @@ class UtilisateurType extends AbstractType
             ->add('prenom', TextType::class, 
                 ['label'=> 'Prenom : '])
                 ->add('civilite',             TextType::class, ['label' => 'Civilite'])
-            ->add('datedenaissance')
+->add('datedenaissance')
             ->add('adresse', TextType::class, ['label'=> 'Adresse : '])
-            ->add('email', EmailType::class, ['label'=> 'Email :'])
+            ->add('status', TextType::class, ['label' => 'Status'])
+->add('email', EmailType::class, ['label'=> 'Email :'])
         ;
     }
 

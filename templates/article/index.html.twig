@@ -25,7 +25,9 @@ Liste des articles :
                  <th>Contenu</th>
                 <th>Date</th> 
                 <th>Image</th>
-                
+                <th>Catégories</th>
+<th>Auteurs</th>
+<th>Commentaires</th>
                 <th>Modifier</th>
             <th>Afficher</th>
             <th>Supprimer</th>
@@ -41,6 +43,10 @@ Liste des articles :
 <td>{{ article.contenu }}</td>
                     <td>{{ article.date|date("d/m/Y") }}</td>  
                     <td>{{ article.imageName }}</td>  
+                <td>{{ article.categories.titre }}</td>  
+                <td>{{ article.auteurs }}</td>  
+                {#<td>{{ article.commentaires }}</td>  #}
+                
                 <td>
                     <a href="{{ path('modifierArticle_index', {'id': article.id }) }}">Modifier</a>
                 </td>

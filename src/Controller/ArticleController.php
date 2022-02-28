@@ -29,19 +29,6 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    // RECHERCHER UN ARTICLE :
-/**
-     * @Route("/rechercherArticle/{id}", name="rechercherArticle_index", methods={"GET","POST"})
-     */
-    public function rechercheArticle(ArticleRepository $articleRepository): Response
-    {
-        $article = $articleRepository-> findByArticleCivilite();
-    return $this->render('article/rechercherArticle.html.twig', [
-        'id' => $article ->getId(),
-        'article' => $article,
-    ]);
-}
-
 // FORMULAIRE D'UN ARTICLE :
 /**
      * @Route("/formulaireArticle", name = "formulaireArticle_index", methods={"GET","POST"})

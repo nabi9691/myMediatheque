@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}
- Enregistrement d'un auteur :
+ Enregistrement d'une categorie :
  {% endblock %}
 
 {% block body %}
  <br> <br>
  
-    <h1> Enregistrement d'un auteur :</h1>
+    <h1> Enregistrement d'une categorie :</h1>
 
-    {{ include('auteur/formulaireAuteur.html.twig') }}<br>
+    {{ include('categorie/formulaireCategorie.html.twig') }}<br>
 
-    <a href="{{ path('auteur_index') }}">Liste des auteur :</a><br>
+    <a href="{{ path('categorie_index') }}">Liste des categories :</a><br>
 
 
 {% endblock %}

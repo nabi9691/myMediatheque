@@ -2,16 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use App\Entity\Categorie;
 use Doctrine\ORM\Mapping as ORM;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Repository\ArticleRepository;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\File\File;
 
 
 /**
@@ -73,6 +74,27 @@ class Article
      * @var string|null
      */
     private $imageName;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+          */
+    private $categories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Auteur::class, inversedBy="articles")
+     */
+    private $auteurs;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="articles")
+     */
+    private $commentaires;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -179,9 +201,11 @@ class Article
         return $this->imageFile;
     }
 
-    public function setImageName(?string $imageName): void
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
+
+        return $this;
     }
 
     public function getImageName(): ?string
@@ -189,4 +213,65 @@ class Article
         return $this->imageName;
     }
 
+    public function getCategories(): ?Categorie
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Categorie $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    public function getAuteurs(): ?Auteur
+    {
+        return $this->auteurs;
+    }
+
+    public function setAuteurs(?Auteur $auteurs): self
+    {
+        $this->auteurs = $auteurs;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setArticles($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getArticles() === $this) {
+                $commentaire->setArticles(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
+    {
+return $this->contenu;
+    }
+    }
 }

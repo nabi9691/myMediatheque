@@ -28,19 +28,6 @@ class AuteurController extends AbstractController
         ]);
     }
 
-    // RECHERCHER UN AUTEUR :
-/**
-     * @Route("/rechercherAuteur/{id}", name="rechercherAuteur_index", methods={"GET","POST"})
-     */
-    public function rechercheAuteur(AuteurRepository $auteurRepository): Response
-    {
-        $auteur = $auteurRepository-> findByAuteurCivilite();
-    return $this->render('auteur/rechercherAuteur.html.twig', [
-        'id' => $auteur ->getId(),
-        'auteur' => $auteur,
-    ]);
-}
-
 // FORMULAIRE D'UN AUTEUR :
 /**
      * @Route("/formulaireAuteur", name = "formulaireAuteur_index", methods={"GET","POST"})

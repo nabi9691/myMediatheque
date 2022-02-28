@@ -19,6 +19,7 @@ afficher utilisateur :
                  <th>Civilité</th>
                  <th> Date de naissance</th> 
                  <th>Adresse</th> 
+                 <th>Status</th>
                  <th>Email</th> 
 </tr>
         </thead>
@@ -28,7 +29,7 @@ afficher utilisateur :
                 <td>{{ utilisateur.nom }}</td>
                 <td>{{ utilisateur.prenom }}</td>
                 <td>{{ utilisateur.civilite }}</td>
-                 <td>{{ utilisateur.datedenaissance ? utilisateur.datedenaissance   }}</td> 
+                 <td>{{ utilisateur.datedenaissance ? utilisateur.datedenaissance|date("d/m/y")   }}</td> 
                 <td>{{ utilisateur.adresse }}</td> 
                  <td>{{ utilisateur.email }}</td>  
         </tr>

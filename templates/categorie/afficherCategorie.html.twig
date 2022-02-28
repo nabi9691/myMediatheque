@@ -2,32 +2,30 @@
 
 {% block title %}
 
-afficher auteur :
+afficher catégorie :
 {% endblock %}
 
 {% block body %}
     <h1>
-    Afficher auteur :
+    Afficher catégorie :
     </h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                 <th>Civilité</th>
-                                  <th>Email</th> 
+                <th>Titre</th>
+                <th>Résumé</th>
+                 <th>Articles</th>
 </tr>
         </thead>
         <tbody>
             <tr>
-                                <td>{{ auteur.id }}</td>
-                <td>{{ auteur.nom }}</td>
-                                <td>{{ auteur.prenom }}</td>
-<td>{{ auteur.civilite }}</td>
-                 <td>{{ auteur.email }}</td>  
-</tr>
+                                <td>{{ catégorie.id }}</td>
+                <td>{{ catégorie.titre }}</td>
+                                <td>{{ catégorie.resume }}</td>
+<td>{{ catégorie.articles }}</td>
+                </tr>
         </tbody>
     </table>
 

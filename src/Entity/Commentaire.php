@@ -32,6 +32,11 @@ class Commentaire
      */
     private $auteurs;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaires")
+     */
+    private $articles;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,4 +77,22 @@ class Commentaire
 
         return $this;
     }
+
+    public function getArticles(): ?Article
+    {
+        return $this->articles;
+    }
+
+    public function setArticles(?Article $articles): self
+    {
+        $this->articles = $articles;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->contenu;
+    }
+
 }

@@ -29,19 +29,6 @@ class CommentaireController extends AbstractController
         ]);
     }
 
-    // RECHERCHER UN COMMENTAIRE :
-/**
-     * @Route("/rechercherCommentaire/{id}", name="rechercherCommentaire_index", methods={"GET","POST"})
-     */
-    public function rechercheCommentaire(CommentaireRepository $commentaireRepository): Response
-    {
-        $commentaire = $commentaireRepository-> findByCommentaire();
-    return $this->render('commentaire/rechercherCommentaire.html.twig', [
-        'id' => $commentaire ->getId(),
-        'commentaire' => $commentaire,
-    ]);
-}
-
 // FORMULAIRE D'UN COMMENTAIRE :
 /**
      * @Route("/formulaireCommentaire", name = "formulaireCommentaire_index", methods={"GET","POST"})

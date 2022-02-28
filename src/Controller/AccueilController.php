@@ -14,7 +14,7 @@ class AccueilController extends AbstractController
     public function index(): Response
     {
         return $this->render('accueil/index.html.twig', [
-            'accueil_name' => 'BIEN VENU DANS LA MEDIATHEQUE DU SAVOIR !',
+            'accueil_name' => 'BIEN VENU DANS RETROUVAILLE.COM !',
         ]);
             }
 

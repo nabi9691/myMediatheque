@@ -26,17 +26,6 @@ class UtilisateurController extends AbstractController
         ]);
     }
 
-/**
-     * @Route("/rechercheUtilisateur/{id}", name="rechercheUtilisateur_index", methods={"GET","POST"})
-     */
-    public function rechercheUtilisateur(UtilisateurRepository $utilisateurRepository): Response
-    {
-        $utilisateur = $utilisateurRepository-> findByUtilisateurCivilite();
-    return $this->render('utilisateur/rechercheUtilisateur.html.twig', [
-        'id' => $utilisateur ->getId(),
-        'utilisateur' => $utilisateur,
-    ]);
-}
     
 /**
      * @Route("/formulaireUtilisateur", name = "formulaireUtilisateur_index", methods={"GET","POST"})

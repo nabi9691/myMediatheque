@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategorieController extends AbstractController
 {
 
-// LISTE DES CATEGORIES :
+    // LISTE DES CATEGORIES :
 /**
     * @Route("categorie", name="categorie_index", methods={"GET"})
      */
@@ -28,18 +28,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    // RECHERCHER UNE CATEGORIE :
-/**
-     * @Route("/rechercherCategorie/{id}", name="rechercherCategorie_index", methods={"GET","POST"})
-     */
-    public function rechercheCategorie(CategorieRepository $categorieRepository): Response
-    {
-        $categorie = $categorieRepository-> findByCategorieCivilite();
-    return $this->render('categorie/rechercherCategorie.html.twig', [
-        'id' => $categorie ->getId(),
-        'categorie' => $categorie,
-    ]);
-}
+    
 
 // FORMULAIRE D'UNE CATEGORIE  :
 /**

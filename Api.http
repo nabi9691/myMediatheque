@@ -1,0 +1,1 @@
+GET https://fr.wikipedia.org/w/api.php?action=query&titles=Terre&prop=extracts&exchars=500&explaintext&utf8&format=json

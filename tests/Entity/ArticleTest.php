@@ -1,69 +1,102 @@
 <?php
 
+use App\Entity\Article;
 namespace App\Tests\Entity;
 
 use App\Entity\Article;
-use PHPUnit\Framework\TestCase;
+use App\Entity\Auteur;
+use App\Entity\Categorie;
+use App\Entity\Commentaire;
 use DateTime;
+use PHPUnit\Framework\TestCase;
 
 class ArticleTest extends TestCase
 {
     public function testValide(): void
     {
-        $article = new Article();
-        $dateTime = new DateTime();
-
+        $auteur = new Auteur;
+        $categorie = new Categorie;
+        $date = new DateTime();
+        $article = New Article();
         $article
-                        ->setTitre('titre')
-                        ->setResume('resume')
-                        ->setStatus('publier')
-                        ->setContenu('contenu de mon article')
-                        ->setDate($dateTime)
-                        ->setImageName('imageName');
-                                
-        $this->assertTrue($article->getTitre() ==='titre');
-        $this->assertTrue($article->getResume() ==='resume');
-        $this->assertTrue($article->getStatus() ==='publier');
-        $this->assertTrue($article->getContenu() ==='contenu');
-$this->assertTrue($article->getDate()===$dateTime);
-$this->assertTrue($article->getImageName() ==='imageName');
+            ->setTitre("Toto")
+            ->setContenu("Fab")
+            ->setResume("Toto en vacance")
+            ->setStatus("Publier")
+            ->setSlug("Slug")
+            ->setCategories($categorie)
+            ->setAuteurs($auteur)
+            ->setdate($date)
+            ->setImageName("pnj1")
+            ;
+        $this->assertTrue($article->getTitre() === "Toto");
+        $this->assertTrue($article->getContenu() === "Fab");
+        $this->assertTrue($article->getResume() === "Toto en vacance");
+        $this->assertTrue($article->getStatus() === "Publier");
+        $this->assertTrue($article->getSlug() === "Slug");
+        $this->assertTrue($article->getCategories() === $categorie);
+        $this->assertTrue($article->getAuteurs() === $auteur);
+        $this->assertTrue($article->getdate() === $date);
+        $this->assertTrue($article->getImageName() === "pnj1");
     }
-    
-    public function testError(): void
+
+    public function testNonValide(): void
     {
+        $auteur = new Auteur;
+        $categorie = new Categorie;
+        $date = new DateTime();
         $article = new Article();
-        $dateTime = new DateTime();
         $article
-        ->setTitre('titre')
-        ->setResume('resume')
-        ->setStatus('publier')
-        ->setContenu('contenu de mon article')
-        ->setDate($dateTime)
-        ->setImageName('imageName');
-        
-        
-                        
-        $this->assertFalse($article->getTitre() !=='titre');
-        $this->assertFalse($article->getResume() !=='resume');
-        
-        $this->assertFalse($article->getStatus() !=='publier');
-        $this->assertFalse($article->getContenu() !=='contenu');
-                $this->assertFalse($article->getDate() !==$dateTime);
-        $this->assertFalse($article->getImageName() !=='imageName');
-        
+            ->setTitre("Valdo")
+            ->setContenu("Fab")
+            ->setResume("Trop à faire")
+            ->setStatus("Publier")
+            ->setSlug("Slug")
+            ->setCategories($categorie)
+            ->setAuteurs($auteur)
+            ->setdate($date)
+            ->setImageName("pnj1")
+            ;
+        // $this->assertFalse(false);
+        $this->assertFalse($article->getTitre() !== "Valdo");
+        $this->assertFalse($article->getContenu() !== "Fab");
+        $this->assertFalse($article->getResume() !== "Trop à faire");
+        $this->assertFalse($article->getStatus() !== "Publier");
+        $this->assertFalse($article->getSlug() !== "Slug");
+        $this->assertFalse($article->getCategories() !== $categorie);
+        $this->assertFalse($article->getAuteurs() !== $auteur);
+        $this->assertFalse($article->getdate() !== $date);
+        $this->assertFalse($article->getImageName() !== "pnj1");
     }
 
-    
     public function testVide(): void
     {
         $article = new Article();
-        
+        // $this->assertEmpty(empty);
+        $this->assertEmpty($article->getId());
         $this->assertEmpty($article->getTitre());
+        $this->assertEmpty($article->getContenu());
         $this->assertEmpty($article->getResume());
         $this->assertEmpty($article->getStatus());
-        $this->assertEmpty($article->getContenu());
-        $this->assertEmpty($article->getDate());
+        $this->assertEmpty($article->getSlug());
+        $this->assertEmpty($article->getCategories());
+        $this->assertEmpty($article->getAuteurs());
+        $this->assertEmpty($article->getdate());
         $this->assertEmpty($article->getImageName());
-        }
-    
+    }
+
+    public function testAddRomveCommantaires()
+    {
+        
+        $commentaire = new Commentaire();
+        $article = new Article();
+
+        $this->assertEmpty($commentaire->getArticles());
+
+        $article->addCommentaire($commentaire);
+        $this->assertContains($commentaire , $article->getCommentaires());
+ 
+        $article->removeCommentaire($commentaire);
+        $this->assertEmpty($commentaire->getArticles());
+    }
 }

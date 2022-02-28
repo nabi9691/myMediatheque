@@ -27,6 +27,7 @@ Liste des utilisateurs :
                 <th>Modifier</th>
             <th>Afficher</th>
             <th>Supprimer</th>
+            
             </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@ Liste des utilisateurs :
                  <td>{{ utilisateur.datedenaissance|date("d/m/Y")  }} </td>
 <td>{{ utilisateur.adresse }}</td> 
                  <td>{{ utilisateur.email }}</td>  
+                
                 <td>
                     <a href="{{ path('modifierUtilisateur_index', {'id': utilisateur.id }) }}">Modifier</a>
                 </td>
@@ -52,10 +54,9 @@ Liste des utilisateurs :
         {% else %}
             <tr>
                 <td colspan="7">Pas d'Utulisateurs</td>
+            
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('nouvelUtilisateur_index') }}">Enregistrement d'in nouvel utilisateur :</a>
 {% endblock %}

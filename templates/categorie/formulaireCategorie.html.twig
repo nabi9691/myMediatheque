@@ -3,17 +3,16 @@
 {% block body %}
 
     
-{{ form_start(formAuteur) }}
+{{ form_start(formCategorie) }}
 
-Nom: {{ form_widget(formAuteur.nom) }}<br>
-Prénom: {{ form_widget(formAuteur.prenom) }} <br>
-Civilité: {{ form_widget(formAuteur.civilite) }} <br>
-Email: {{ form_widget(formAuteur.email) }} <br>
+Titre: {{ form_widget(formCategorie.titre) }}<br>
+Résumé: {{ form_widget(formCategorie.resume) }} <br>
+Articles: {{ form_widget(formCategorie.articles) }} <br>
 
 <button type="submit" class="btn btn-success">envoyer</button>
 
 
       
-    {{ form_end(formAuteur) }}
+    {{ form_end(formCategorie) }}
   {% endblock %}
 

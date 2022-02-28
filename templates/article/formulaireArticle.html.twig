@@ -10,7 +10,7 @@ Résumé: {{ form_widget(formArticle.resume) }} <br>
 Status: {{ form_widget(formArticle.status) }} <br>
 Contenu: {{ form_widget(formArticle.contenu) }} <br>
 Date: {{ form_widget(formArticle.date) }} <br>
-Image: {{ form_widget(formArticle.image) }} <br>
+ImageName: {{ form_widget(formArticle.imageName) }} <br>
 
 
 <button type="submit" class="btn btn-success">envoyer</button>
@@ -18,5 +18,8 @@ Image: {{ form_widget(formArticle.image) }} <br>
 
       
     {{ form_end(formArticle) }}
+  
+  
+  
   {% endblock %}
 

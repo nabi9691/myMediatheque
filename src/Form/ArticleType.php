@@ -5,10 +5,11 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Categorie;
-use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -28,12 +29,16 @@ class ArticleType extends AbstractType
             ->add('contenu', TextareaType::class, [
                 'label' => 'Entrez le contenu',
             ])
-            //->add('date', DateTime::class, [
-                //'label' => 'Date',
-            //])
-            ->add('image')
-            ->add('categorie', EntityType::class, [
-                'label' => 'Catégorie',
+            ->add('date', DateTime::class, [
+                'label' => 'Date',
+            ])
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image à inserrer'
+            ])
+
+            //->add('imageName')
+            ->add('categories', EntityType::class, [
+                'label' => 'Catégories',
                 'class' => Categorie::class,
                 'choice_label' => 'titre',
                 // 'multiple' => true

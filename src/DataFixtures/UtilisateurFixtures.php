@@ -3,11 +3,13 @@
 namespace App\DataFixtures;
 
 use Faker; 
+use Faker\Factory;
+
+
 use App\Entity\Utilisateur;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\DBAL\Driver\IBMDB2\Exception\Factory;
-//use Faker\Factory;
+use Symfony\Component\Validator\Constraints\Date;
 
 class UtilisateurFixtures extends Fixture
 {
@@ -23,14 +25,19 @@ class UtilisateurFixtures extends Fixture
         $utilisateur = new Utilisateur();
         $civilite = ['homme', 'femme'];
         shuffle($civilite);
+        $status = ['connecter', 'déconnecter', 'anonyme'];
+        shuffle($status);
 
-        
-        $utilisateur->setNom($faker->sentence())
-        ->setPrenom($faker->sentence())
-        ->setDatedenaissance($faker->sentence())
-        ->setAdresse($faker->sentence())
-        ->setEmail($faker->sentence())
-        ->setCivilite($civilite[0]);
+
+        $utilisateur->setNom($faker->lastName)
+        ->setPrenom($faker->firstName)
+        //->setDatedenaissance($dateTime)
+            ->setAdresse($faker->address)
+        ->setEmail($faker->email)
+        ->setCivilite($faker->titleMale)
+        ->setStatus($status[0]);
+
+        $utilisateur->setDatedenaissance(new \DateTime('-20 years'));
         
 
 $manager->persist($utilisateur);

@@ -41,11 +41,20 @@ $auteur
 
     public function TestEmpty()
     {
-        $auteur = new Auteur();
+        
+        
+$auteur = new Auteur();
+
+
+        $this->assertEmpty($auteur->getId());
 
         $this->assertEmpty($auteur->getCivilite());
         $this->assertEmpty($auteur->getNom());
         $this->assertEmpty($auteur->getPrenom());
                 $this->assertEmpty($auteur->getEmail());
         }
-}
+
+
+        
+        
+    }
